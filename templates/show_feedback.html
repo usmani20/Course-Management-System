@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}All Feedback{% endblock %}
+{% block content %}
+<h2>All Feedback</h2>
+<table>
+    <tr>
+        <th>Student</th>
+        <th>Course</th>
+        <th>Rating</th>
+        <th>Feedback</th>
+        <th>Date</th>
+    </tr>
+    {% for fb in feedbacks %}
+    <tr>
+        <td>{{ fb.student.name }}</td>
+        <td>{{ fb.course.title }}</td>
+        <td>{{ fb.rating }}</td>
+        <td>{{ fb.content }}</td>
+        <td>{{ fb.date_submitted }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

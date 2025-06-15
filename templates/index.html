@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Course Registration{% endblock %}
+
+{% block content %}
+<section class="welcome">
+    <h2>Welcome to the Course Registration Portal</h2>
+    <p>Select a section from the navigation bar to view or enroll students, manage courses, or generate reports.</p>
+    <img src="{{ url_for('static', filename='assets/university.jpg') }}" alt="University" width="600">
+</section>
+{% endblock %}

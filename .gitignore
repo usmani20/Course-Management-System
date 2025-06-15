@@ -1,0 +1,13 @@
+.env
+
+# Ignore Python specific files and directories
+__pycache__/
+*.pyc
+venv/           # Ignore your virtual environment folder
+*.log           # Ignore log files
+.mypy_cache/    # Ignore MyPy cache
+.pytest_cache/  # Ignore pytest cache
+
+# Ignore PyCharm specific files and directories
+.idea/          # PyCharm project files
+*.iml           # PyCharm module files

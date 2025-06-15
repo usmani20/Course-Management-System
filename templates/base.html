@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Course Registration System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/add_student">Add Student</a>
+        <a href="/show_all_students">View Students</a>
+        <a href="/add_course">Add Course</a>
+        <a href="/show_all_courses">View Courses</a>
+        <a href="/enrollments">Enrollments</a>
+        <a href="/add_assignment">Add Assignments</a>
+        <a href="/show_assignments">View Assignment</a>
+        <a href="/add_feedback">Submit Feedback</a>
+        <a href="/show_feedback">View Feedbacks</a>
+        <a href="/add_instructor">Add Instructor</a>
+        <a href="/show_all_instructors">View Instructors</a>
+        <a href="/show_all_departments">View Departments</a>
+        <a href="/show_schedule">View Schedule</a>
+        <a href="/announce_something">Make Announcement</a>
+        <a href="/all_announcements">View Announcements</a>
+        <a href="/graphs">Analytics</a>
+
+    </nav>
+
+
+    <main>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-message">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

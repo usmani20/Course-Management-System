@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %}Analytics{% endblock %}
+{% block content %}
+<head>
+    <title>Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Base styles for canvas elements */
+        canvas {
+            max-width: 1000px; /* Increased max-width for larger charts */
+            height: 500px; /* Added a fixed height for better visual consistency */
+            margin-left: auto; /* Center horizontally */
+            margin-right: auto; /* Center horizontally */
+            display: block;
+        }
+
+        /* Add vertical space between the canvas elements and below them */
+        .chart-container {
+            margin-bottom: 40px; /* Adjust this value for more or less space */
+        }
+    </style>
+</head>
+
+<body class="font-sans antialiased bg-gray-100 p-4">
+    <div class="container mx-auto">
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-800">Student Distribution by Department</h2>
+        <div class="chart-container bg-white p-6 rounded-lg shadow-md">
+            <canvas id="barChart"></canvas>
+        </div>
+
+        <h2 class="text-center text-2xl font-bold mb-6 text-gray-800">Course Enrollments (Pie Chart)</h2>
+        <div class="chart-container bg-white p-6 rounded-lg shadow-md">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        // Bar Chart - Students by Department
+        const ctx = document.getElementById('barChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: {{ labels | tojson }},
+                datasets: [{
+                    label: 'Number of Students',
+                    data: {{ values | tojson }},
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set to false to allow for custom height
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // Pie Chart - Course Enrollments
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        new Chart(pieCtx, {
+            type: 'pie',
+            data: {
+                labels: {{ course_labels | tojson }},
+                datasets: [{
+                    label: 'Enrollments',
+                    data: {{ course_counts | tojson }},
+                    backgroundColor: [
+                        '#004080', '#0066cc', '#3399ff', '#66ccff', '#99ccff',
+                        '#003366', '#336699', '#6699cc', '#99ccff', '#cce5ff'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false, // Set to false to allow for custom height
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right'
+                    },
+                    title: {
+                        display: false
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+{% endblock %}

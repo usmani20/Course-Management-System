@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Add Feedback{% endblock %}
+{% block content %}
+<h2>Submit Feedback</h2>
+<form method="POST">
+    Student:
+    <select name="student_id" required>
+        {% for student in students %}
+        <option value="{{ student.id }}">{{ student.name }}</option>
+        {% endfor %}
+    </select><br>
+
+    Course:
+    <select name="course_id" required>
+        {% for course in courses %}
+        <option value="{{ course.id }}">{{ course.title }}</option>
+        {% endfor %}
+    </select><br>
+
+    Rating (1-5): <input type="number" name="rating" min="1" max="5" required><br>
+    Feedback:<br>
+    <textarea name="content" rows="5" required></textarea><br>
+
+    <button type="submit">Submit Feedback</button>
+</form>
+{% endblock %}

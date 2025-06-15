@@ -1,0 +1,129 @@
+/* Body and overall layout */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Simple horizontal nav bar */
+nav {
+  background-color: #004080;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 15px;
+  padding: 10px 5px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+  background-color: #0066cc;
+}
+
+/* Main container sections */
+.container, main, section {
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  color: #004080;
+  margin-top: 0;
+}
+
+/* Form styling */
+form {
+  margin: 10px auto;
+  width: 80%;
+  max-width: 600px;
+  text-align: auto;
+}
+
+form input, form select, form textarea, form button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-align: left;
+}
+
+form button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #0066cc;
+}
+
+/* Buttons outside forms (like standalone buttons) */
+button, input[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Lists styling */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+li {
+  background: white;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: left;
+}
+
+/* Tables */
+table {
+  width: 80%;
+  margin: 0 auto 20px auto;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* Images */
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+}
